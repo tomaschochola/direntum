@@ -1,0 +1,23 @@
+{
+    "appPort": ["61230:61230", "127.0.0.1:61231-61232:61231-61232", "61233:61233", "127.0.0.1:61234-61239:61234-61239"],
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": ["EditorConfig.EditorConfig", "ms-vscode.cpptools"],
+            "settings": {
+                "files.insertFinalNewline": true,
+                "files.trimFinalNewlines": true,
+                "files.trimTrailingWhitespace": true
+            }
+        }
+    },
+    "init": true,
+    "postCreateCommand": ["make", "postcreate"],
+    "remoteUser": "ubuntu",
+    "updateRemoteUserUID": true,
+    "userEnvProbe": "none",
+    "waitFor": "postCreateCommand",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}"
+}
